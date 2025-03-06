@@ -11,7 +11,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-
 permissions:
   contents: read
 
@@ -31,13 +30,11 @@ jobs:
           distribution: 'temurin'
       - name: Run PMD
         id: pmd
-        uses: pmd/pmd-github-action@v2  # Utilisation de la version stable v1
-        # with:
-        #   rulesets: 'rulesets/java/quickstart.xml'
-        #   sourcePath: 'src/main/java'
-        #   analyzeModifiedFilesOnly: false
+        uses: pmd/pmd-github-action@v2  # Utilisation de la version stable v2
         with:
            rulesets: 'rulesets/java/quickstart.xml'
+           failureThreshold: 10  # Le workflow échouera si le nombre de violations dépasse 10
+      # Si tu veux uploader le rapport SARIF, décommente la section suivante
       # - name: Upload SARIF file
       #   uses: github/codeql-action/upload-sarif@v3
       #   with:
