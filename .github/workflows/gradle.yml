@@ -57,3 +57,6 @@ jobs:
         with:
           name: pmd-report  # Nom valide sans espaces ni caractères spéciaux
           path: pmd-report.sarif  # Assurez-vous que le chemin correspond au fichier généré par PMD
+
+      - name: List files in workspace
+        run: ls -R
