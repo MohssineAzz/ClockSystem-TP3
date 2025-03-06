@@ -46,12 +46,19 @@ jobs:
           name: test-results
           path: build/reports/tests/
 
-      # Étape ajoutée : Exécuter l'analyse PMD
-      - name: Run PMD static code analysis
-        uses: pmd/pmd-github-action@v1
-        with:
-          rulesets: 'rulesets/java/quickstart.xml'  # Utilisation correcte de 'rulesets' sans préfixe supplémentaire
-           # Étape ajoutée : Télécharger le rapport PMD
+      # Étape ajoutée : Télécharger et installer PMD v4
+      - name: Download PMD v4
+        run: |
+          wget https://github.com/pmd/pmd/releases/download/pmd_releases%2Fv4.3.0/pmd-bin-4.3.0.zip
+          unzip pmd-bin-4.3.0.zip
+          sudo mv pmd-bin-4.3.0 /opt/pmd
+
+      # Étape ajoutée : Exécuter l'analyse PMD avec PMD v4
+      - name: Run PMD static code analysis with PMD v4
+        run: |
+          /opt/pmd/bin/pmd -d src -R rulesets/java/quickstart.xml -f sarif -r pmd-report.sarif
+
+      # Étape ajoutée : Télécharger le rapport PMD
       - name: Upload PMD Report
         uses: actions/upload-artifact@v4
         with:
