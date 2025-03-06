@@ -7,21 +7,21 @@ on:
   push:
     branches: [ "main" ]
 
+# Permissions globales limitées
 permissions:
-  contents: read # Ajout pour garantir l'accès au contenu du dépôt
-  security-events: write
-  id-token: write
+  contents: read
 
 jobs:
   analysis:
     name: Scorecard analysis
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write  # Doit être défini uniquement ici
+      id-token: write  # Doit être défini uniquement ici
 
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: "Run Scorecard analysis"
         uses: ossf/scorecard-action@v2.3.1
