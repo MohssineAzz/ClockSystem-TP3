@@ -45,3 +45,9 @@ jobs:
         with:
           name: test-results
           path: build/reports/tests/
+
+      # Étape ajoutée : Exécuter l'analyse PMD
+      - name: Run PMD static code analysis
+        uses: pmd/pmd-github-action@v1
+        with:
+          rulesets: 'java-basic'
