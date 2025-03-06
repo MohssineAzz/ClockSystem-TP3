@@ -37,7 +37,7 @@ jobs:
         #   sourcePath: 'src/main/java'
         #   analyzeModifiedFilesOnly: false
         with:
-           rulesets: ’java-basic’
+           rulesets: 'java-basic'
       # - name: Upload SARIF file
       #   uses: github/codeql-action/upload-sarif@v3
       #   with:
