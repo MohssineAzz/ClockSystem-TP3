@@ -46,8 +46,7 @@ jobs:
           name: test-results
           path: build/reports/tests/
 
-      # Étape ajoutée : Exécuter l'analyse PMD
       - name: Run PMD static code analysis
         uses: pmd/pmd-github-action@v1
-        with:
-          rulesets: 'category/java/basic'  # Chemin complet du jeu de règles
+        with:  
+           rulesets: 'java-basic'  # Tentez de ne pas ajouter le préfixe "category/"
