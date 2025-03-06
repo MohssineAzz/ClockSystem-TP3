@@ -51,3 +51,9 @@ jobs:
         uses: pmd/pmd-github-action@v1
         with:
           rulesets: 'rulesets/java/quickstart.xml'  # Utilisation correcte de 'rulesets' sans préfixe supplémentaire
+           # Étape ajoutée : Télécharger le rapport PMD
+      - name: Upload PMD Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: pmd-report  # Nom valide sans espaces ni caractères spéciaux
+          path: pmd-report.sarif  # Assurez-vous que le chemin correspond au fichier généré par PMD
