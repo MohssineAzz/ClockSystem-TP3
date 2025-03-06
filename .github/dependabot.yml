@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Gestion des dépendances Gradle
+  - package-ecosystem: "gradle"
+    directory: "/" # Répertoire racine du projet où se trouve le fichier build.gradle
+    schedule:
+      interval: "weekly" # Vérifie les mises à jour chaque semaine
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "org.springframework.boot" # Exemple d'exclusion (modifiable)
+
+  # Gestion des mises à jour des GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/" # Répertoire racine où se trouve .github/workflows/
+    schedule:
+      interval: "weekly" # Vérifie les mises à jour chaque semaine
+    open-pull-requests-limit: 3
