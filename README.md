@@ -3,6 +3,7 @@
 ![PMD Code Analysis Status](https://github.com/MohssineAzz/ClockSystem-TP3/actions/workflows/pmd.yml/badge.svg)
 ![CodeQL Status](https://github.com/MohssineAzz/ClockSystem-TP3/actions/workflows/codeql.yml/badge.svg)
 ![ScoreCard OSSF](https://github.com/MohssineAzz/ClockSystem-TP3/actions/workflows/scorecard.yml/badge.svg)
+![Scorecard Badge](https://api.securityscorecards.dev/projects/github.com/MohssineAzz/ClockSystem-TP3/badge)
 
 This is a gradle-based Java project for a Clock with Swing GUI and JUnit5 unit tests. It has been created and used by Tom Mens for educational purposes at the University of Mons.
 
